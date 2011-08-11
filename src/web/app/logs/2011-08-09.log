@@ -1,0 +1,56 @@
+[ERROR] 2011-08-09T08:40:22-05:00 - exception 'ErrorException' with message 'Missing argument 1 for hello()' in /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php:14
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(14): Slim::handleErrors()
+#1 [internal function]: hello('hello', Array)
+#2 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(18): Slim->run()
+#5 {main}
+[ERROR] 2011-08-09T08:40:40-05:00 - exception 'ErrorException' with message 'Missing argument 1 for hello()' in /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php:14
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(14): Slim::handleErrors()
+#1 [internal function]: hello('hello', Array)
+#2 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(18): Slim->run()
+#5 {main}
+[ERROR] 2011-08-09T09:36:12-05:00 - exception 'ErrorException' with message 'Undefined variable: viewParams' in /Users/diegopineda/Projects/KSwiss/LadyTubes/src/templates/homepage.php:4
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/templates/homepage.php(4): Slim::handleErrors('homepage.php')
+#1 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/View.php(163): require('/Users/diegopin...')
+#2 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/View.php(147): Slim_View->render('homepage.php')
+#3 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Slim.php(576): Slim_View->display('homepage.php', Array)
+#4 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(43): Slim->render()
+#5 [internal function]: homepage('homepage', Array)
+#6 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Route.php(343): call_user_func_array()
+#7 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Slim.php(1016): Slim_Route->dispatch()
+#8 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(46): Slim->run()
+#9 {main}
+[ERROR] 2011-08-09T09:43:27-05:00 - exception 'ErrorException' with message 'Undefined variable: record' in /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php:42
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(42): Slim::handleErrors()
+#1 [internal function]: homepage('homepage', Array)
+#2 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/Slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/index.php(46): Slim->run()
+#5 {main}
+[ERROR] 2011-08-09T12:24:01-05:00 - exception 'ErrorException' with message 'Undefined variable: viewParams' in /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/index.php:43
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/index.php(43): Slim::handleErrors()
+#1 [internal function]: hello('hello', Array)
+#2 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/index.php(53): Slim->run()
+#5 {main}
+[ERROR] 2011-08-09T12:27:51-05:00 - exception 'ErrorException' with message 'Undefined index:  REQUEST_URL' in /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/templates/404.php:1
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/templates/404.php(1): Slim::handleErrors('404.php')
+#1 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/View.php(163): require('/Users/diegopin...')
+#2 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/View.php(147): Slim_View->render('404.php')
+#3 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/Slim.php(576): Slim_View->display('404.php')
+#4 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/index.php(50): Slim->render()
+#5 [internal function]: custom_not_found_callback('custom_not_foun...')
+#6 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/Slim.php(450): call_user_func()
+#7 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/slim/Slim.php(1026): Slim->notFound()
+#8 /Users/diegopineda/Projects/KSwiss/LadyTubes/src/app/index.php(53): Slim->run()
+#9 {main}

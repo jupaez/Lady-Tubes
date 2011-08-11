@@ -35,9 +35,13 @@
 		$app->config(array(
 			'debug' => false
 		));
-		ORM::configure('mysql:host=localhost;dbname=ladytubes');
-		ORM::configure('username','ladytubes');
-		ORM::configure('password','GKfm6b7jnHFxC23P');
+		ORM::configure('mysql:host=localhost;dbname=MYDB');
+		ORM::configure('username','MYUSER');
+		ORM::configure('password','MYPASS');
+		$facebook = new Facebook(array(
+      		'appId'  => 'MY APP ID',
+      		'secret' => 'MY SECRET ID',
+    	));
 	}
 
 	
@@ -47,26 +51,54 @@
 	function hello(){
 		global $app;
 		global $facebook;
-		$app->response()->header('Content-Type','application/json');
-		//try to get some info from the facebook user
-		$user = $facebook->getUser();
-		if($user){
-			try{
-				$user_profile = $facebook->api('/me');
-				?>
-					<pre>
-						<?php var_dump($user_profile); ?>
-					</pre>
-				<?php
-			}catch(FacebookApiException $e){
-				?>
-				<pre>
-					<?php var_dump($e); ?>
-				</pre>
-				<?php
-			}			
+		$app->response()->header('Content-Type','text/plain');
+		$app->render('hello.php');
+	}
+	
+	//POST Route to add user to subscribers and flag them as subscribe via post updates
+	$app->get('/fbSubscribe','fbSubscribe');
+	function fbSubscribe(){
+		global $app;
+		global $facebook;
+		$app->response()->header('Content-Type','application/json');		
+		try{
+			$facebookId = $facebook->getUser();
+			if($facebookId){
+				$user = $facebook->api('/me');
+				$facebookId = $user['id'];
+				$record = ORM::for_table('subscribers')->where('fbid',$facebookId)->find_one();
+				if($record){
+					//user has already authorized application at some point, need to verify if post to wall flag is enabled
+					if(!$record->postWall){
+						$record->postWall = 1;
+						$record->save();
+						echo json_encode(array('status' => 'OK','message' =>'User subscribed successfully'));
+					}else{				
+						//user has already subscribed for email updates
+						echo json_encode(array('status' => 'ALREADY_SUBSCRIBED','message'=>'User has already subscribed to updates'));
+					}
+				}else{
+					//user must be registered to receive updates
+					$newRecord = ORM::for_table('subscribers')->create();
+					$newRecord->fbid = $facebookId;
+					$newRecord->postWall = 1;
+					$newRecord->save();
+					echo json_encode(array('status' => 'OK','message' =>'User subscribed successfully'));
+				}
+			}else{
+				echo json_encode(array('status' => 'NO_FBID','message' => 'No FacebookId found, is user logged in?'));
+			}
+		}catch(FacebookApiException $e){
+			$renderParams = array('fbException',$e);
+			$app->render('facebookException',$renderParams);
 		}
-		//$app->render('hello.php');
+	}
+	
+	$app->get('/testORM','testORM');
+	function testORM(){
+		//First we validate if user has already been added to subscribers table
+		$facebookId = '7278937811';
+		echo "remove me";
 	}
 	
 	//Custom 404 page

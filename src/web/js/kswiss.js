@@ -4,24 +4,28 @@ function checkAuthStatus(){
 
 //Allows a user to call the subscribe to updates via facebook
 function fbSubscribe() {
-	//validate user has connected to the app and has also authorized the publish_stream updates	
-	//if user has not connected to the application, process facebook login and prompt for publish_stream permissions
+	//validate user has connected to the app and has also authorized the publish_stream updates.
 	FB.login(function(response){
-		console.log(response);
-		if(response.authResponse){				
-			$.get("/app/hello",function(data,textStatus){
-				console.log(textStatus);
-				console.log(data);
-			});				
-		}else{
-			//user cancelled login or did not fully authorize app -> do nothing
+		if(response.authResponse){
+			$.ajax({
+				type: 'GET',
+				url: '/app/fbSubscribe',
+				async: true,
+				success: function(data,textStatus,jqXHR){
+					return data;
+				}
+			});
 		}
 	},{scope : 'publish_stream'});	
 }
 
 
 function emailSubscribe(){
-	
+	return 'emailSubscribeCallback';
+}
+
+function twitterSubscribe(){
+	return 'twitterSubscribeCallback';
 }
 
 $(document).ready(function(){

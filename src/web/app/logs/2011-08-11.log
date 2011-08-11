@@ -1,0 +1,25 @@
+[ERROR] 2011-08-11T10:33:47-05:00 - exception 'ErrorException' with message 'Undefined variable: user' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php:66
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(66): Slim::handleErrors()
+#1 [internal function]: fbSubscribe('fbSubscribe', Array)
+#2 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(84): Slim->run()
+#5 {main}
+[ERROR] 2011-08-11T10:33:57-05:00 - exception 'ErrorException' with message 'Undefined variable: user' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php:66
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(66): Slim::handleErrors()
+#1 [internal function]: fbSubscribe('fbSubscribe', Array)
+#2 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(84): Slim->run()
+#5 {main}
+[ERROR] 2011-08-11T10:34:09-05:00 - exception 'ErrorException' with message 'Undefined variable: user' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php:66
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(66): Slim::handleErrors()
+#1 [internal function]: fbSubscribe('fbSubscribe', Array)
+#2 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(84): Slim->run()
+#5 {main}
+[ERROR] 2011-08-11T10:37:41-05:00 - OAuthException: An active access token must be used to query information about the current user.

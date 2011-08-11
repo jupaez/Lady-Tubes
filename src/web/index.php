@@ -3,16 +3,18 @@
 <head>
 	<title>K Swiss Lady Tubes</title>
 	<link rel="stylesheet" href="css/reset.css" type="text/css"/>
-	<link rel="stylesheet" href="css/helpers.css" type="text/css"/>
+	<link rel="stylesheet" href="css/helpers.css" type="text/css"/>	
 	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
-	<script type="text/javascript" src="js/kswiss.js"></script>
-	
-	
+	<script type="text/javascript" src="js/kswiss.js"></script>	
 </head>
-<body>	
-	<h1>Index page for canvas app</h1>
-	
+<body>
 	<!-- load facebook JS api -->
 	<?php include('js/fbInit.php'); ?>
+	<h1>Index page for canvas app</h1>
+	<div>
+		<div>
+			<a href="#" onclick="javascript:fbSubscribe();">Subscribe to updates via facebook</a>
+		</div>
+	</div>	
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 	require 'slim/Slim.php';
-	require_once './idiorm/idiorm.php';	
+	require_once 'idiorm/idiorm.php';
+	require 'fb/facebook.php';
+	$facebook = NULL;
 	//initialize Slim application	
 	$app = new Slim(array(
 		'log.enable' => true,
@@ -10,18 +12,23 @@
 		'mode' => 'development'
 	));
 		
-	//Development Setup
+	//Development Application Setup
 	$app->configureMode('development','devel');		
 	function devel(){
 		global $app;
+		global $facebook;
 		$app->config(array(
 			'debug' => true			
 		));
 		ORM::configure('mysql:host=localhost;dbname=ladytubes');
 		ORM::configure('username','ladytubes');
 		ORM::configure('password','GKfm6b7jnHFxC23P');
+		$facebook = new Facebook(array(
+      		'appId'  => '107487976017979',
+      		'secret' => 'b1c62e9355fcc08322fa9a88ef72fe77',
+    	));
 	}
-	//Production Setup
+	//Production Application Setup
 	$app->configureMode('production','prod');
 	function prod(){
 		global $app;
@@ -39,9 +46,27 @@
 	$app->get('/hello','hello');
 	function hello(){
 		global $app;
-		$records = ORM::for_table('subscribers')->find_many();
-		$viewParams = array('records' => $records);
-		$app->render('hello.php',$viewParams);
+		global $facebook;
+		$app->response()->header('Content-Type','application/json');
+		//try to get some info from the facebook user
+		$user = $facebook->getUser();
+		if($user){
+			try{
+				$user_profile = $facebook->api('/me');
+				?>
+					<pre>
+						<?php var_dump($user_profile); ?>
+					</pre>
+				<?php
+			}catch(FacebookApiException $e){
+				?>
+				<pre>
+					<?php var_dump($e); ?>
+				</pre>
+				<?php
+			}			
+		}
+		//$app->render('hello.php');
 	}
 	
 	//Custom 404 page

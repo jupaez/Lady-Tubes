@@ -27,7 +27,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE `subscribers` (
   `id` int(11) NOT NULL auto_increment,
-  `fbid` int(11) NOT NULL,
+  `fbid` int(80) NOT NULL,
   `email` varchar(80) default NULL,
   `postWall` tinyint(4) NOT NULL default '0',
   `sendEmail` tinyint(4) NOT NULL default '0',

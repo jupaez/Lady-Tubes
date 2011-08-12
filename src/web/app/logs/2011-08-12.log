@@ -77,3 +77,12 @@ Stack trace:
 #4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
 #5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
 #6 {main}
+[ERROR] 2011-08-12T10:51:55-05:00 - exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2147483647' for key 2' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php:1063
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php(1063): PDOStatement->execute(Array)
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(141): ORM->save()
+#2 [internal function]: emailSubscribe()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('emailSubscribe', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(183): Slim->run()
+#6 {main}

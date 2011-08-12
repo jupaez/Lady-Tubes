@@ -157,6 +157,22 @@
 		//echo "remove me";
 	}
 	
+	$app->post('/fbDebug','fbDebug');
+	function fbDebug(){
+		global $app;
+		global $facebook;
+		try{			
+			$facebookId = $facebook->getUser();
+			$fromUserToken = $facebook->getAccessToken();		
+			echo "the facebook id from getUser: ".$facebookId.'</br>';
+			echo "the facebook accessToken: ".$fromUserToken.'</br>';
+			
+		}catch(FacebookApiException $e){
+			echo $e->__toString().'</br>';
+		}		
+		
+	}
+	
 	//Custom 404 page
 	$app->notFound('custom_not_found_callback');
 	function custom_not_found_callback() {

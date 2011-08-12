@@ -1,0 +1,79 @@
+[ERROR] 2011-08-12T08:28:49-05:00 - exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2147483647' for key 2' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php:1063
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php(1063): PDOStatement->execute(Array)
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(85): ORM->save()
+#2 [internal function]: fbSubscribe()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('fbSubscribe', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(111): Slim->run()
+#6 {main}
+[ERROR] 2011-08-12T08:52:05-05:00 - exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2147483647' for key 2' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php:1063
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php(1063): PDOStatement->execute(Array)
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(92): ORM->save()
+#2 [internal function]: fbSubscribe()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('fbSubscribe', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
+#6 {main}
+[ERROR] 2011-08-12T08:53:37-05:00 - exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2147483647' for key 2' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php:1063
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php(1063): PDOStatement->execute(Array)
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(93): ORM->save()
+#2 [internal function]: fbSubscribe()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('fbSubscribe', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(168): Slim->run()
+#6 {main}
+[ERROR] 2011-08-12T09:01:45-05:00 - exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2147483647' for key 2' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php:1063
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php(1063): PDOStatement->execute(Array)
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(141): ORM->save()
+#2 [internal function]: emailSubscribe()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('emailSubscribe', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
+#6 {main}
+[ERROR] 2011-08-12T09:04:19-05:00 - exception 'RuntimeException' with message 'View cannot render template `./templates/facebookException`. Template does not exist.' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/View.php:160
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/View.php(147): Slim_View->render('facebookExcepti...')
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(576): Slim_View->display('facebookExcepti...')
+#2 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(100): Slim->render('facebookExcepti...', Array)
+#3 [internal function]: fbSubscribe()
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('fbSubscribe', Array)
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#6 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
+#7 {main}
+[ERROR] 2011-08-12T09:06:17-05:00 - exception 'ErrorException' with message 'Undefined variable: fbException' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/templates/facebookException.php:4
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/templates/facebookException.php(4): Slim::handleErrors('facebookExcepti...')
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/View.php(163): require('/Users/diegopin...')
+#2 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/View.php(147): Slim_View->render('facebookExcepti...')
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(576): Slim_View->display('facebookExcepti...', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(100): Slim->render()
+#5 [internal function]: fbSubscribe('fbSubscribe', Array)
+#6 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array()
+#7 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#8 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
+#9 {main}
+[ERROR] 2011-08-12T09:18:10-05:00 - exception 'ErrorException' with message 'Undefined offset:  0' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/templates/facebookException.php:6
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/templates/facebookException.php(6): Slim::handleErrors('facebookExcepti...')
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/View.php(163): require('/Users/diegopin...')
+#2 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/View.php(147): Slim_View->render('facebookExcepti...')
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(576): Slim_View->display('facebookExcepti...', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(100): Slim->render()
+#5 [internal function]: fbSubscribe('fbSubscribe', Array)
+#6 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array()
+#7 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#8 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
+#9 {main}
+[ERROR] 2011-08-12T09:28:14-05:00 - exception 'PDOException' with message 'SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2147483647' for key 2' in /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php:1063
+Stack trace:
+#0 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/idiorm/idiorm.php(1063): PDOStatement->execute(Array)
+#1 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(141): ORM->save()
+#2 [internal function]: emailSubscribe()
+#3 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Route.php(343): call_user_func_array('emailSubscribe', Array)
+#4 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/slim/Slim.php(1016): Slim_Route->dispatch()
+#5 /Users/diegopineda/Projects/KSwiss/Lady-Tubes/src/web/app/index.php(167): Slim->run()
+#6 {main}

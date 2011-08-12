@@ -22,11 +22,11 @@
 				//link click events to mock buttons
 				$('.fbSubscribe').click(function(e){
 					e.preventDefault();
-					return fbSubscribe;
+					fbSubscribe();
 				});
 				$('.emailSubscribe').click(function(e){
 					e.preventDefault();
-					alert(emailSubscribe());
+					emailSubscribe();
 				});
 				$('.twitterSubscribe').click(function(e){
 					e.preventDefault();

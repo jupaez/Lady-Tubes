@@ -55,8 +55,15 @@
 		$app->render('hello.php');
 	}
 	
-	//POST Route to add user to subscribers and flag them as subscribe via post updates
-	$app->get('/fbSubscribe','fbSubscribe');
+	/*
+	 * POST Route to add user to subscribers and flag them as subscribe via post updates
+	 * RETURN json message with these possible status:
+	 * OK -> All is good
+	 * ALREADY_SUBSCRIBED -> User has already subscribed to fb updates
+	 * NO_FBID -> There is no Facebook User Id so user cannot be logged in.  Must be logged in via JS SDK
+	 * FB_EXCEPTION -> Thrown if facebook api returns an error (User not logged into facebook, not authorized for app). 
+	 */
+	$app->post('/fbSubscribe','fbSubscribe');	
 	function fbSubscribe(){
 		global $app;
 		global $facebook;
@@ -89,16 +96,65 @@
 				echo json_encode(array('status' => 'NO_FBID','message' => 'No FacebookId found, is user logged in?'));
 			}
 		}catch(FacebookApiException $e){
-			$renderParams = array('fbException',$e);
-			$app->render('facebookException',$renderParams);
+			$renderParams = array('fbException' => $e);
+			$app->render('facebookException.php',$renderParams,500);
+		}
+	}
+
+	/*
+	 * POST Route to add user to subscribers and add their email for updates
+	 * RETURN json message with these possible status:
+	 * OK -> All is good
+	 * ALREADY_SUBSCRIBED -> User has already subscribed to fb updates
+	 * NO_FBID -> There is no Facebook User Id so user cannot be logged in.  Must be logged in via JS SDK
+	 * FB_EXCEPTION -> Thrown if facebook api returns an error (User not logged into facebook, not authorized for app). 
+	 */
+	$app->post('/emailSubscribe','emailSubscribe');	
+	function emailSubscribe(){
+		global $app;
+		global $facebook;
+		$app->response()->header('Content-Type','application/json');		
+		try{
+			$facebookId = $facebook->getUser();
+			if($facebookId){
+				$user = $facebook->api('/me');	
+				$facebookId = $user['id'];
+				$email = $user['email'];
+				$record = ORM::for_table('subscribers')->where('fbid',$facebookId)->find_one();
+				if($record){
+					//user has already authorized application at some point, need to verify if post to wall flag is enabled
+					if(!$record->sendEmail){
+						$record->sendEmail = 1;
+						$record->email = $email;
+						$record->save();
+						echo json_encode(array('status' => 'OK','message' =>'User subscribed successfully'));
+					}else{				
+						//user has already subscribed for email updates
+						echo json_encode(array('status' => 'ALREADY_SUBSCRIBED','message'=>'User has already subscribed to updates'));
+					}
+				}else{
+					//user must be registered to receive updates
+					$newRecord = ORM::for_table('subscribers')->create();
+					$newRecord->fbid = $facebookId;
+					$newRecord->sendEmail = 1;
+					$newRecord->email = $email;
+					$newRecord->save();
+					echo json_encode(array('status' => 'OK','message' =>'User subscribed successfully'));
+				}
+			}else{
+				echo json_encode(array('status' => 'NO_FBID','message' => 'No FacebookId found, is user logged in?'));
+			}
+		}catch(FacebookApiException $e){
+			$renderParams = array('fbException' => $e);
+			$app->render('facebookException.php',$renderParams,500);
 		}
 	}
 	
 	$app->get('/testORM','testORM');
 	function testORM(){
 		//First we validate if user has already been added to subscribers table
-		$facebookId = '7278937811';
-		echo "remove me";
+		//$facebookId = '7278937811';
+		//echo "remove me";
 	}
 	
 	//Custom 404 page

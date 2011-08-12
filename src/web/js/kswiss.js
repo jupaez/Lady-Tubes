@@ -8,7 +8,7 @@ function fbSubscribe() {
 	FB.login(function(response){
 		if(response.authResponse){
 			$.ajax({
-				type: 'GET',
+				type: 'POST',
 				url: '/app/fbSubscribe',
 				async: true,
 				success: function(data,textStatus,jqXHR){
@@ -21,7 +21,18 @@ function fbSubscribe() {
 
 
 function emailSubscribe(){
-	return 'emailSubscribeCallback';
+	FB.login(function(response){
+		if(response.authResponse){
+			$.ajax({
+				type: 'POST',
+				url: '/app/emailSubscribe',
+				async: true,
+				success: function(data,textStatus,jqXHR){
+					return data;
+				}
+			});
+		}
+	},{scope : 'email'});	
 }
 
 function twitterSubscribe(){

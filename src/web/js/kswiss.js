@@ -1,7 +1,6 @@
-function checkAuthStatus(){
-	return FB._userStatus;
+function flashCallback(status,data){
+	alert(status+' '+data.status);
 }
-
 //Allows a user to call the subscribe to updates via facebook
 function fbSubscribe() {
 	//validate user has connected to the app and has also authorized the publish_stream updates.
@@ -12,7 +11,7 @@ function fbSubscribe() {
 				url: '/app/fbSubscribe',
 				async: true,
 				success: function(data,textStatus,jqXHR){
-					return data;
+					flashCallback(textStatus,data);
 				}
 			});
 		}
@@ -28,7 +27,7 @@ function emailSubscribe(){
 				url: '/app/emailSubscribe',
 				async: true,
 				success: function(data,textStatus,jqXHR){
-					return data;
+					flashCallback(textStatus,data);
 				}
 			});
 		}

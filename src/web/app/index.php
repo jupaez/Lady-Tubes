@@ -150,6 +150,19 @@
 		}
 	}
 	
+	$app->post('/fbDeauthorize','fbDeauthorize');
+	$app->get('/fbDeauthorize','fbDeauthorize');
+	function fbDeauthorize(){
+		global $app;
+		$log->debug('deauthorize called');
+		$log = $app->getLog();
+		ob_start();
+		var_dump($_REQUEST);
+		$result = ob_get_clean();		
+		$log->debug($result);
+	}
+	
+	//ORM test method - should be removed on prod
 	$app->get('/testORM','testORM');
 	function testORM(){
 		//First we validate if user has already been added to subscribers table
@@ -157,6 +170,7 @@
 		//echo "remove me";
 	}
 	
+	//Facebook debugger
 	$app->post('/fbDebug','fbDebug');
 	function fbDebug(){
 		global $app;
